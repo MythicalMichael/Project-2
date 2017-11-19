@@ -1,19 +1,30 @@
 <!-- views/auth/signup.ejs -->
 <h2>Signup</h2>
 
+<h3> You are getting closer to creating your group. Remember: you will be the admin!</h3>
+
+OR
+
+<h3> You have been invited to be a member</h3>
+
+<h3>Create a personal account first</h3>
 <form action="/signup" method="POST" id="form-container">
   <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
+  <input id="username" type="text" name="username" placeholder="Insert your name here">
+  <br><br>
+  <label for="email">Email</label>
+  <input id="email" type="email" name="email" placeholder="your-email@goes-here.com">
   <br><br>
   <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
+  <input id="password" type="password" name="password" placeholder="1234">
   
-  <% if (typeof message !== "undefined") { %>
+   <% if (typeof message !== "undefined") { %> 
     <div class="error-message"><%= message %></div>
   <% } %>
   <br><br>
-  
-  <button>Create account</button>
+
+  <button>Let's go</button>
+  <button>Create group</button>
 
   <p class="account-message">
     Do you already have an account?
