@@ -1,17 +1,18 @@
 const express = require("express");
-const router= express.Router();
+const authRoutes= express.Router();
 
 const Group = require("../models/group");
 
-router.get("/creategroup"),(req,res,next)=>{
-res.render("create-group");
-}
+authRoutes.get("/creategroup",(req,res)=>{
+  res.render("create-group");
+})
 
-router.post("creategroup"),(req,res,next)=>{
-    const groupname = req.body.groupname;
-    const description = req.body.description;
-    if (grouprname === "" ) {
-        res.render("create-group", { message: "This Groupname already exists" });
-        return;
-      }
-}
+// authRoutes.post("/creategroup",(req,res,next)=>{
+//     const groupname = req.body.groupname;
+//     const description = req.body.description;
+//     if (groupname === "" ) {
+//         res.render("create-group", { message: "This Groupname already exists" });
+//         return;
+//       }
+// });
+module.exports = authRoutes;

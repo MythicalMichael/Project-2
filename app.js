@@ -18,6 +18,7 @@ mongoose.connect("mongodb://localhost/project2-DB");
 
 const index = require('./routes/index');
 const users = require('./routes/users');
+const group = require('./routes/group');
 
 const expressLayouts = require('express-ejs-layouts');
 
@@ -80,7 +81,7 @@ app.use(passport.session());
 
 app.use('/', authRoutes);
 app.use('/users', users);
-
+app.use('/group', group);
 
 app.use(function (req, res, next) {
   res.status(404);
