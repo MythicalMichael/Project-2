@@ -52,10 +52,10 @@ authRoutes.post("/signup", (req, res, next) => {
 // --- LOGIN ---
 
 authRoutes.get("/", (req, res, next) => {
-  res.render("welcome");
+  res.render("index");
 });
 
-authRoutes.post("/welcome", passport.authenticate("local", {
+authRoutes.post("/index", passport.authenticate("local", {
   successRedirect: "/",
   failureRedirect: "/",
   failureFlash: true,
