@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
 
-<h1>(APP's NAME)</h1>
+<head>
+  <title></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
 
-<form action="/" method="POST">
-  <div>
-    <input type="submit" value="Log In">
-  <div>
-    <label for="username">Username:</label>
-    <input type="text" name="username">
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" name="password">
-  </div>
-  <% if (typeof message != "undefined") { %>
-    <div class="error-message"><%= message %></div>
-  <% } %>
-  </div>
-</form>
+<body>
 
-<button>Get started</button>
+  <h1>(APP's NAME)</h1>
+<div class="container">
+  <form action="/welcome" method="POST">
+    <div>
+      <input type="submit" value="Log In">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" name="username">
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" name="password">
+      </div>
+      <% if (typeof message != "undefined") { %>
+        <div class="error-message">
+          <%= message %>
+        </div>
+        <% } %>
+    </div>
+  </form>
+  <a href="/signup">Get started</a>
+</div>
+</body>
 
-  </body>
 </html>

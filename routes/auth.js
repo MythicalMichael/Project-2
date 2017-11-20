@@ -13,15 +13,18 @@ const bcryptSalt = 10;
 // --- SIGNUP ---
 
 authRoutes.get("/signup", (req, res, next) => {
-  res.render("auth/signup");
+  const role = req.params.role;
+  res.render("auth/signup", {role: role});
 });
 
 authRoutes.post("/signup", (req, res, next) => {
   const username = req.body.username;
+  const email = req.body.email;
   const password = req.body.password;
+  const role = 'admin';
 
-  if (username === "" || password === "") {
-    res.render("auth/signup", { message: "Indicate username and password" });
+  if (username === "" || password === "" || email === "") {
+    res.render("auth/signup", { message: "Indicate username, email and password" });
     return;
   }
 
@@ -36,7 +39,9 @@ authRoutes.post("/signup", (req, res, next) => {
 
     const newUser = new User({
       username,
-      password: hashPass
+      email,
+      password: hashPass,
+      role,
     });
 
     newUser.save((err) => {
@@ -57,7 +62,7 @@ authRoutes.get("/welcome", (req, res, next) => {
 
 authRoutes.post("/welcome", passport.authenticate("local", {
   successRedirect: "/",
-  failureRedirect: "/",
+  failureRedirect: "/welcome",
   failureFlash: true,
   passReqToCallback: true
 }));
