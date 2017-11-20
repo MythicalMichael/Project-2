@@ -15,6 +15,7 @@ const flash = require("connect-flash");
 
 mongoose.connect("mongodb://localhost/project2-DB");
 
+
 const index = require('./routes/index');
 const users = require('./routes/users');
 
