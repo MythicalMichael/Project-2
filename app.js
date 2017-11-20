@@ -92,12 +92,21 @@ app.set('views', __dirname + '/views');
 
 app.use('/users', users);
 
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
+
+// this page does not exist
+app.use(function(err,req,res,next) {
+
+
+});
+
 
 // error handler
 app.use(function(err, req, res, next) {
