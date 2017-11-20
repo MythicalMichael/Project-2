@@ -51,7 +51,7 @@ authRoutes.post("/signup", (req, res, next) => {
 
 // --- LOGIN ---
 
-authRoutes.get("/", (req, res, next) => {
+authRoutes.get("/welcome", (req, res, next) => {
   res.render("welcome");
 });
 
