@@ -18,9 +18,7 @@ app.set('view engine', 'ejs');
 
 
 
-app.use(expressLayouts);
-app.set('layout', 'layouts/main-layout');
-app.set('views', __dirname + '/views');
+
 
 
 
@@ -31,6 +29,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+///////////////
+app.use(expressLayouts);
+app.set('layout', 'layouts/main-layout');
+app.set('views', __dirname + '/views');
 
 app.use('/', index);
 app.use('/users', users);
