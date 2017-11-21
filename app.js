@@ -11,13 +11,6 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const flash = require("connect-flash");
 
-<<<<<<< HEAD
-const User = require("./models/user");
-
-mongoose.connect("mongodb://localhost/project2-DB");
-=======
->>>>>>> bafff25fc79f6056e47df9b32f0730ac072c9e03
-
 mongoose.connect("mongodb://localhost/project2-DB");
 
 const authRoutes = require("./routes/auth");
