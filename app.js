@@ -18,7 +18,7 @@ const index = require('./routes/index');
 const users = require('./routes/users');
 const group = require('./routes/group');
 const User = require("./models/user");
-
+const Group = require("./models/group")
 const expressLayouts = require('express-ejs-layouts');
 
 const app = express();
