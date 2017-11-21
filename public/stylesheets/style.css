@@ -1,6 +1,6 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-
+    box-sizing: border-box;
 }
 
 a {
@@ -32,16 +32,18 @@ a {
 	align-items: center;
 }
 
-
 h1{
   text-align: center;
   font-size: 70px;
   margin: 30px;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
-.inside-box{
-  display: flex;
-  flex-direction: row;
-  align-content: space-between;
-  justify-content: center;
+.right-side button{
+font-family: "Open Sans", Helvetica, Arial, sans-serif;  
+  text-align: center;
+  font-size: 20px;
+  margin: 20px;
+  height: 70px;
+  width: 100px;
 }

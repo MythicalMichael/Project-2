@@ -13,6 +13,8 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const flash = require("connect-flash");
 
+const User = require("./models/user");
+
 mongoose.connect("mongodb://localhost/project2-DB");
 
 
@@ -31,6 +33,7 @@ app.use(expressLayouts);
 app.set('layout', 'layout/main-layout');
 app.set('views', __dirname + '/views');
 
+app.use(flash());
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -41,6 +44,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // passport
+app.use(session({
+  secret: "our-passport-local-strategy-app",
+  resave: true,
+  saveUninitialized: true
+}));
 
 passport.serializeUser((user, cb) => {
   cb(null, user._id);
@@ -69,16 +77,11 @@ passport.use(new LocalStrategy((username, password, next) => {
   });
 }));
 
-app.use(session({
-  secret: "our-passport-local-strategy-app",
-  resave: true,
-  saveUninitialized: true
-}));
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.use('/', index);
+app.use('/', index);
 app.use('/', authRoutes);
 app.use('/users', users);
 app.use('/group', group);
