@@ -1,13 +1,25 @@
+<head>
+    <title>Create your group</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
 
 <body>
-    <h1>Create your Group</h1>
+    <div class="main-container-creategroup">
+        <div class="left-side-creategroup">
+            <h1>Create your Group</h1>
 
-    <form action="/creategroup" method="POST" id="form-creategroup">
-        <label for="groupname">Groupname</label>
-        <input id="groupname" type="text" name="groupname" placeholder="Insert your groupname">
+            <form action="/" method="POST" id="form-creategroup">
+                <label for="groupname">Group name</label>
+                <input id="groupname" type="text" name="groupname" placeholder="Insert your groupname">
 
-        <label for="description">Description</label>
-        <input id="description" type="description" name="description" placeholder="Describe your group">
+                <label for="description">Description</label>
+                <input id="description" type="description" name="description" placeholder="Describe your group">
+            <button>DONE</button>
+            </form>
+        </div>
+        <div class="right-side-creategroup">
 
+        </div>
+    </div>
 
 </body>
