@@ -4,23 +4,27 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-
 const mongoose = require("mongoose");
-const authRoutes = require("./routes/auth");
 const session = require("express-session");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const flash = require("connect-flash");
 
+<<<<<<< HEAD
 const User = require("./models/user");
 
 mongoose.connect("mongodb://localhost/project2-DB");
+=======
+>>>>>>> bafff25fc79f6056e47df9b32f0730ac072c9e03
 
+mongoose.connect("mongodb://localhost/project2-DB");
 
+const authRoutes = require("./routes/auth");
 const index = require('./routes/index');
 const users = require('./routes/users');
 const group = require('./routes/group');
+const User = require("./models/user");
 
 const expressLayouts = require('express-ejs-layouts');
 
@@ -42,7 +46,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(flash());
 // passport
 app.use(session({
   secret: "our-passport-local-strategy-app",

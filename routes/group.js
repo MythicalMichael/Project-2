@@ -11,7 +11,8 @@ authRoutes.post("/creategroup",(req,res,next)=>{
     const groupname = req.body.groupname;
     const description = req.body.description;
     if (groupname === "" ) {
-        res.render("create-group", { message: "This Groupname already exists" });
+
+        res.render("create-group", { message: "Please give your group a name" });
         return;
       }
 });
