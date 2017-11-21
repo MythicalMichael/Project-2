@@ -4,18 +4,17 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-
 const mongoose = require("mongoose");
-const authRoutes = require("./routes/auth");
 const session = require("express-session");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const flash = require("connect-flash");
 
+
 mongoose.connect("mongodb://localhost/project2-DB");
 
-
+const authRoutes = require("./routes/auth");
 const index = require('./routes/index');
 const users = require('./routes/users');
 const group = require('./routes/group');
