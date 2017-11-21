@@ -47,3 +47,28 @@ font-family: "Open Sans", Helvetica, Arial, sans-serif;
   height: 70px;
   width: 100px;
 }
+
+
+.right-side-signup{
+  position: relative;
+  height: 500px;
+  width: 700px;
+  background-color: rgba(230, 230, 50, 0.267);
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.left-side-signup{
+  position: relative;
+  height: 500px;
+  width: 700px;
+  background-color: rgba(230, 230, 50, 0.267);
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  }
