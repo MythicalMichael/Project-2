@@ -1,6 +1,8 @@
 body {
-    
-}
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+  }
 
 .container-navbar {
     width: 100%;
