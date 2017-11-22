@@ -1,15 +1,3 @@
-## Welcome page
-
-
-In this screen we need to see the app's name + 'create button' + 'login button' with 2 inputs
-
-- Create Button: 
-router.get "/auth/signup"  (as Admin) creating user 
-
-
-
-- LoginSubmit Button:
-router.post "/welcome"   redirecting us to the main page "/"
 
 
 
@@ -31,12 +19,7 @@ router.get "creategroup"
 MEMBER EXPERIENCE with Signup:
 After we have accessed to the link, we can become a member of the group. We only see the 'LET'S GO' button.
 
-## create create-group (admin only)
 
-router.post 
-groupname 
-and group description
-"Done" button to submit
 
 ## Login (member + admin)
 router.post "/welcome" enter username and password
@@ -99,7 +82,35 @@ Delete Button : delete Account button removes you from the database
 
 shows you inputs where you can update your profile
 
-## Error handlers
+
 
 ## * if time
 - calender api
+
+
+
+
+--------------------  DONE  ----------------------
+
+## Welcome page
+
+
+In this screen we need to see the app's name + 'create button' + 'login button' with 2 inputs
+
+- Create Button: 
+router.get "/auth/signup"  (as Admin) creating user 
+
+
+
+- LoginSubmit Button:
+router.post "/welcome"   redirecting us to the main page "/"
+
+
+## create create-group (admin only)
+
+router.post 
+groupname 
+and group description
+"Done" button to submit
+
+## Error handlers

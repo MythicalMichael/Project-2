@@ -8,7 +8,8 @@ const userSchema = new Schema({
   password: String,
   role: {
     type: String,
-    enum: ['admin', 'member']
+    enum: ['admin', 'member'],
+  group:{ type: Schema.Types.ObjectId, ref: 'Group' }
   },
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }

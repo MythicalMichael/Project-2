@@ -2,45 +2,50 @@
   <title>Sign up</title>
   <link rel='stylesheet' href='/stylesheets/signup.css' />
 </head>
-<div class="main-container">
 
-  <div class="left-side-signup">
-    <h2>Signup</h2>
+<body>
+  <div class="main-container">
+    <div class="middle-section">
+      <div class="left-side-signup">
+        <h3> You are getting closer to creating your group. Remember: you will be the admin!</h3>
+        <h1>Signup</h1>
 
-    <h3> You are getting closer to creating your group. Remember: you will be the admin!</h3>
-
-    <div class="signup-box">
-      <h3>Create a personal account first</h3>
-      <form action="/signup" method="POST" id="form-container">
-        <label for="username">Username</label>
-        <input id="username" type="text" name="username" placeholder="Insert your name here">
-        <br>
-        <br>
-        <label for="email">Email</label>
-        <input id="email" type="email" name="email" placeholder="your-email@goes-here.com">
-        <br>
-        <br>
-        <label for="password">Password</label>
-        <input id="password" type="password" name="password" placeholder="1234">
-
-        <% if (typeof message !== "undefined") { %>
-          <div class="error-message">
-            <%= message %>
-          </div>
-          <% } %>
+        <div class="signup-box">
+          <h2>Create a personal account first</h2>
+          <form action="/signup" method="POST" id="form-container">
+            <label for="username">Username</label>
+            <input id="username" type="text" name="username" placeholder="Insert your name here">
             <br>
             <br>
-              <button>Create Group</button>
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" placeholder="your-email@goes-here.com">
+            <br>
+            <br>
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password" placeholder="1234">
+
+            <% if (typeof message !== "undefined") { %>
+              <div class="error-message">
+                <%= message %>
+              </div>
+              <% } %>
+                <br>
+                <br>
+                <button>Create Group</button>
+        </div>
+      </div>
+      </form>
+      <div class="right-side-signup">
+        <p class="account-message">
+          Do you already have an account?
+          <a href="/welcome">Login</a>
+        </p>
+      </div>
     </div>
+    <div class="footer-side">
+      <p>2017 © Daily Grind. Privacy & Terms</p>
+    </div>
+
+
   </div>
-    </form>
-   <div class="right-side-signup">
-     <p class="account-message">
-    Do you already have an account?
-    <a href="/welcome">Login</a>
-  </p>
-   </div>
-
-  
-
-</div>
+</body>
