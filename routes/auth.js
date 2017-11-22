@@ -14,7 +14,9 @@ const bcryptSalt = 10;
 
 authRoutes.get("/signup", (req, res, next) => {
   const role = req.params.role;
-  res.render("auth/signup", {role: role});
+  res.render("auth/signup", {
+    role: role
+  });
 });
 
 authRoutes.post("/signup", (req, res, next) => {
@@ -24,13 +26,19 @@ authRoutes.post("/signup", (req, res, next) => {
   const role = 'admin';
 
   if (username === "" || password === "" || email === "") {
-    res.render("auth/signup", { message: "Indicate username, email and password" });
+    res.render("auth/signup", {
+      message: "Indicate username, email and password"
+    });
     return;
   }
 
-  User.findOne({ username }, "username", (err, user) => {
+  User.findOne({
+    username
+  }, "username", (err, user) => {
     if (user !== null) {
-      res.render("auth/signup", { message: "The username already exists" });
+      res.render("auth/signup", {
+        message: "The username already exists"
+      });
       return;
     }
 
@@ -46,7 +54,9 @@ authRoutes.post("/signup", (req, res, next) => {
 
     newUser.save((err) => {
       if (err) {
-        res.render("auth/signup", { message: "Something went wrong" });
+        res.render("auth/signup", {
+          message: "Something went wrong"
+        });
       } else {
         res.redirect("/group/creategroup");
       }
@@ -69,8 +79,19 @@ authRoutes.post("/welcome", passport.authenticate("local", {
 
 // --- AUTHENTICATION
 
-authRoutes.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render("private", { user: req.user });
+authRoutes.get("/private-page", ensureLogin.ensureLoggedIn("/welcome"), (req, res) => {
+  res.render("private", {
+    user: req.user
+  });
+
+});
+
+// --- LOG OUT
+
+authRoutes.get("/logout", (req, res) => {
+  // req.session.destroy();
+  req.logout();
+  res.redirect("welcome");
 });
 
 module.exports = authRoutes;
