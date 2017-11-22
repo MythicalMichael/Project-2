@@ -3,6 +3,7 @@ const authRoutes = express.Router();
 const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
 
+
 const User = require("../models/user");
 
 // Bcrypt to encrypt passwords
@@ -52,14 +53,14 @@ authRoutes.post("/signup", (req, res, next) => {
       role,
     });
 
-    newUser.save((err) => {
+    newUser.save((err, user) => {
       if (err) {
         res.render("auth/signup", {
           message: "Something went wrong"
         });
       } else {
         passport.authenticate('local')(req, res, function () {
-          res.redirect("/group/create-group/:userId");
+          res.redirect('/group/create-group/' + user._id);
         });
       }
     });
