@@ -8,7 +8,6 @@ body {
   position: relative;
   height: 500px;
   width: 1420px;
-  background-color: rgba(230, 230, 50, 0.267);
   margin-top: 200px;
   display: flex;
   flex-direction: column;
@@ -22,8 +21,51 @@ body {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
-@media (min-width: 400px) {
-  .main-container-dashboard h1 {
-    color: blue;
+@media (min-width: 1000px) {
+  .main-container-dashboard{
+    position: relative;
+    height: 500px;
+    width: 500px;
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+
+  .main-container-dashboard h1{
+    text-align: center;
+    font-size: 20px;
+    margin: 20px;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  .main-container-dashboard input{
+    text-align: center;
+    font-size: 20px;
+    margin: 20px;
+    width: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  .main-container-dashboard select{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
+    margin: 20px;
+    width: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  .tasks-box{
+    position: relative;
+    height: 300px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
 }

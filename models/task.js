@@ -4,7 +4,7 @@ const Schema   = mongoose.Schema;
 
 const taskSchema = new Schema({
   taskName: String,
-  taskStatus: null,
+  isDone: Boolean,
   userId: {
     type: Schema.Types.ObjectId,
     ref: 'User'

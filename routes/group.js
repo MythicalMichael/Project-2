@@ -27,7 +27,10 @@ authRoutes.post("/creategroup", (req, res) => {
  
   const newGroup = new Group({
     groupname,
-    description
+    description,
+    adminId: userId,
+    tasks: [],
+    userIds: [userId]
   });
 
   newGroup.save((err) => {

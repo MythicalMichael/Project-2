@@ -59,8 +59,8 @@ authRoutes.post("/signup", (req, res, next) => {
         });
       } else {
         passport.authenticate('local')(req, res, function () {
-          res.redirect('group/creategroup');
-        })
+          res.redirect("/group/create-group/:userId");
+        });
       }
     });
   });
