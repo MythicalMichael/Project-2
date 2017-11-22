@@ -13,9 +13,9 @@ const flash = require("connect-flash");
 
 mongoose.connect("mongodb://localhost/project2-DB");
 
+const taskRoutes = require("./routes/tasks");
 const authRoutes = require("./routes/auth");
 const index = require('./routes/index');
-const users = require('./routes/users');
 const group = require('./routes/group');
 const User = require("./models/user");
 const Group = require("./models/group");
@@ -81,8 +81,8 @@ app.use(passport.session());
 
 app.use('/', index);
 app.use('/', authRoutes);
-app.use('/users', users);
 app.use('/group', group);
+app.use('/task', taskRoutes);
 
 app.use(function (req, res, next) {
   res.status(404);
