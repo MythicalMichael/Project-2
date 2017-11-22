@@ -5,8 +5,8 @@ const Group = require("../models/group");
 const ensureLogin = require("connect-ensure-login");
 
 authRoutes.get("/create-group/", ensureLogin.ensureLoggedIn("/welcome"),(req, res) => {
-  const userId = req.session.passport;
-  res.render("create-group", {userId: userId});
+  const userId = req.session.passport.user;
+  res.render("create-group", {userId});
 });
 
 authRoutes.post("/creategroup", (req, res) => {
@@ -41,11 +41,11 @@ authRoutes.post("/creategroup", (req, res) => {
       res.render("create-group", { message: "Something went wrong" });
       return;
     } else {
-      res.redirect("/");
+      res.redirect("/dashboard");
     }
   });
  });
-})
+});
 
 
 

@@ -5,10 +5,11 @@ const Task = require("../models/task");
 
 /* GET home page. */
 
-router.get('/', (req, res, next) => {
-  Group.findOne({}, (err, group) => {
+router.get('/dashboard', (req, res, next) => {
+  const userId = req.session.passport.user;
+  Group.findOne({$or: [{adminId: userId}, {userIds: userId}]}, (err, group) => {
       if (err) return next(err);
-      res.render('dashboard', group);
+      res.render('dashboard', {group});
   });
 });
 
