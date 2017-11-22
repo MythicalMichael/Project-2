@@ -10,7 +10,7 @@ const bcrypt = require("bcrypt");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const flash = require("connect-flash");
-
+const MongoStore = require("connect-mongo")(session);
 mongoose.connect("mongodb://localhost/project2-DB");
 
 const authRoutes = require("./routes/auth");
@@ -43,10 +43,16 @@ app.use(flash());
 
 // passport
 app.use(session({
-  secret: "our-passport-local-strategy-app",
+  secret: "classiefied-file",
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
 }));
+
 
 passport.serializeUser((user, cb) => {
   cb(null, user._id);
