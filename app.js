@@ -11,6 +11,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const flash = require("connect-flash");
 const MongoStore = require("connect-mongo")(session);
+
 mongoose.connect("mongodb://localhost/project2-DB");
 
 const authRoutes = require("./routes/auth");
