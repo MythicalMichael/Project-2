@@ -5,7 +5,7 @@ const Task = require("../models/task");
 
 /* GET home page. */
 
-router.get('/dashboard', (req, res, next) => {
+router.get('/', (req, res, next) => {
   const userId = req.session.passport.user;
   Group.findOne({$or: [{adminId: userId}, {userIds: userId}]}, (err, group) => {
       if (err) return next(err);

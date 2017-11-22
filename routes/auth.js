@@ -93,9 +93,9 @@ authRoutes.get("/private-page", ensureLogin.ensureLoggedIn("/welcome"), (req, re
 // --- LOG OUT
 
 authRoutes.get("/logout", (req, res) => {
-  // req.session.destroy();
+  req.session.destroy();
   req.logout();
-  res.redirect("welcome");
+  res.redirect("/welcome");
 });
 
 module.exports = authRoutes;

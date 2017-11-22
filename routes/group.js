@@ -41,7 +41,7 @@ authRoutes.post("/creategroup", (req, res) => {
       res.render("create-group", { message: "Something went wrong" });
       return;
     } else {
-      res.redirect("/dashboard");
+      res.redirect("/");
     }
   });
  });
