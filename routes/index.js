@@ -6,7 +6,7 @@ const Task = require("../models/task");
 /* GET home page. */
 
 router.get('/', (req, res, next) => {
-  Group.findOne({_id: groupId}, (err, group) => {
+  Group.findOne({}, (err, group) => {
       if (err) return next(err);
       res.render('dashboard', group);
   });

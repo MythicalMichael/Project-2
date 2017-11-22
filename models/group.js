@@ -7,7 +7,7 @@ const Schema   = mongoose.Schema;
 const groupSchema = new Schema({
   groupname: String,
   description: String,
-  admin: {
+  adminId: { //Id of the administrator of this group
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
@@ -15,7 +15,7 @@ const groupSchema = new Schema({
     type: [Schema.Types.ObjectId],
     ref: 'Task'
   },
-  userIds: {
+  userIds: { //Array of ids corresponding to the users of this group
     type: [Schema.Types.ObjectId],
     ref: 'User'
   }

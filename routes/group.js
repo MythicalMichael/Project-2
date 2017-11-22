@@ -4,15 +4,15 @@ const passport = require("passport");
 const Group = require("../models/group");
 const ensureLogin = require("connect-ensure-login");
 
-authRoutes.get("/create-group/:userId", ensureLogin.ensureLoggedIn("/welcome"),(req, res) => {
-  const userId = req.params.userId;
+authRoutes.get("/create-group/", ensureLogin.ensureLoggedIn("/welcome"),(req, res) => {
+  const userId = req.session.passport;
   res.render("create-group", {userId: userId});
 });
 
 authRoutes.post("/creategroup", (req, res) => {
   const groupname = req.body.groupname;
   const description = req.body.description;
-  const userId = req.body.userId;
+  const adminId = req.body.adminId;
 
   if (groupname === "") {
     res.render("create-group", {
@@ -31,9 +31,9 @@ authRoutes.post("/creategroup", (req, res) => {
     const newGroup = new Group({
       groupname,
       description,
-      adminId: userId,
+      adminId: adminId,
       tasks: [],
-      userIds: [userId]
+      userIds: [adminId]
     });
 
   newGroup.save((err) => {
