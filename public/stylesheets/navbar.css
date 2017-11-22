@@ -11,6 +11,7 @@ body {
     top:0;
     position: fixed;
     z-index:1;
+    font-weight: lighter
 
 } 
 a{
@@ -22,7 +23,8 @@ a{
 ul{
     list-style: none;
     padding: 5px 10px;
-    
+    font-weight: lighter;
+    font-family: Helvetica, sans-serif;
 }
 
 li{
