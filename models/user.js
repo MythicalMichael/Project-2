@@ -9,9 +9,7 @@ const userSchema = new Schema({
   role: {
     type: String,
     enum: ['admin', 'member']
-    
-  }
-  
+  },
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });
