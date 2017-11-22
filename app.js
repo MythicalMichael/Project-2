@@ -18,7 +18,7 @@ const index = require('./routes/index');
 const users = require('./routes/users');
 const group = require('./routes/group');
 const User = require("./models/user");
-const Group = require("./models/group")
+const Group = require("./models/group");
 const expressLayouts = require('express-ejs-layouts');
 
 const app = express();
@@ -40,6 +40,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
+
 // passport
 app.use(session({
   secret: "our-passport-local-strategy-app",

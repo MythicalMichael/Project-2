@@ -1,6 +1,7 @@
 // models/user.js
 const mongoose = require("mongoose");
 const Schema   = mongoose.Schema;
+//const Task  = require('./task');
 
 const userSchema = new Schema({
   username: String,
@@ -9,8 +10,11 @@ const userSchema = new Schema({
   role: {
     type: String,
     enum: ['admin', 'member'],
-  group:{ type: Schema.Types.ObjectId, ref: 'Group' }
+    group:{ 
+      type: Schema.Types.ObjectId, 
+      ref: 'Group' }
   },
+ // tasks: [Task.schema]
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });
