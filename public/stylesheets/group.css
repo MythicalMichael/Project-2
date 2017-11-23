@@ -12,6 +12,7 @@ body {
   align-content: space-between;
   justify-content: center;
   color: black;
+  height: 84vh;
 }
 
 .main-side-group {

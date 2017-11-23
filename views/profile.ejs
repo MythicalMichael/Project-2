@@ -1,8 +1,16 @@
-
-
-
-
-<body>
+<nav class="container-navbar">
+        <ul class="links">
+            <li class="btn">
+                <a href="/profile/<%=user._id%>">My Profile</a>
+            </li>
+            <li class="btn">
+                <a href="/group/mygroup/<%=group._id%>">My Group</a>
+            </li>
+            <li class="btn">
+                <a href="/logout">Log out</a>
+            </li>
+        </ul>
+    </nav>
     <div class="main-container-profile">
         <div class="main-side-profile">
             <h1>Your Profile</h1>
@@ -16,4 +24,3 @@
                 <p>2017 © Daily Grind. Privacy & Terms</p>
               </div>
     </div>
-</body>

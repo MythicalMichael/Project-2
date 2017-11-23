@@ -44,8 +44,14 @@ body {
     text-align: center;
     font-size: 20px;
     margin: 20px;
-    width: 100%;
     font-family: Helvetica, Arial, sans-serif;
+  }
+
+  .main-container-dashboard li{
+    color: grey;
+    display: flex;
+    align-items: center;
+    width: 200px;
   }
 
   .main-container-dashboard select{
@@ -69,6 +75,7 @@ body {
   }
 
 }
+
 
 
 

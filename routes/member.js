@@ -29,12 +29,12 @@ const passport = require("passport");
 
 router.get("/profile/:userId", (req, res, next) => {
   
-    User.findOne({_id: req.params.userId}, (err, user) => {
+    User.findOne({_id: req.params.userId}, (err, user, group) => {
 
             if (err) {
                 next(err);
             } else {
-                res.render("profile",{user})
+                res.render("profile",{user, group})
 
             }
 

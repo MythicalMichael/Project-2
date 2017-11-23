@@ -22,4 +22,14 @@ router.post('/new', (req, res, next) => {
   });
 });
 
+router.post('/:id/update', (req, res, next) => {
+  const isDone = req.body.isDone;
+  const taskId = req.params.id;
+
+  Task.findOneAndUpdate({_id: taskId}, {$set: {isDone: isDone}}, (err, task) => {
+    if (err) next(err);
+    console.log('Task updated!')
+  });
+});
+
 module.exports = router;

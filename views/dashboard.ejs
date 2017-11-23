@@ -7,12 +7,21 @@
     </ul>
 </nav>
 <div class="main-container-dashboard">
-    
-         <% if ( user.role === "admin") { %>
+    <h1>TASKS pending:</h1>
+    <form action="">
+    <ul>
+        <% group.tasks.forEach(function(task){ %>
+            <li class="squaredThree">
+                <%= task.taskName %>
+                <input class="checkbox" type="checkbox" value="<%=task._id%>" <%=task.isDone ? 'checked' : null%>>
+            </li>
+        <% }) %>
+    </ul>
+    <button>Update Tasks</button>
+         <% if (user.role === "admin") { %>
             <button class="delete-button-dashboard dashboard-admin-btn">DELETE</button>
             <button class="add-button-dashboard dashboard-admin-btn">ADD</button>
         <% } %>
 
 </div>
- 
 <!-- <script type="text/javascript" src="/javascripts/progressBar.js"></script> -->
