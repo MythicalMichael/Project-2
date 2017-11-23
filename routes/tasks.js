@@ -1,5 +1,5 @@
 // tasks routes
-
+const Group = require("../models/group");
 const express = require("express");
 const router = express.Router();
 const Task = require("../models/task");
@@ -11,9 +11,14 @@ router.post('/new', (req, res, next) => {
   
   const newTask = Task({ userId, groupId, taskName, isDone: false })
   
-  newTask.save((task, err) => {
+  newTask.save((err, task) => {
       if (err) next(err);
-      else res.redirect("/");
+      else {
+        Group.findOneAndUpdate({_id: groupId}, {$push: {tasks: task._id}}, (err) => {
+          if (err) next(err);
+          res.redirect("/group/mygroup/" + groupId);
+        });
+      }
   });
 });
 

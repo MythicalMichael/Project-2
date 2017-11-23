@@ -83,6 +83,7 @@ router.get('/join/:groupId',(req, res) => {
 // })
 
 router.get("/mygroup/:groupId",(req,res)=>{
+  const user = req.user;
 Group.findOne({_id: req.params.groupId}).
 populate({
     path:"userIds",
@@ -93,7 +94,7 @@ exec(function (err, group) {
   if (err) {
     next(err);
   } else {
-    res.render("mygroup",{group});
+    res.render("mygroup",{user, group});
   }
 });
 })

@@ -43,8 +43,6 @@ router.get("/profile/:userId", (req, res, next) => {
     )
 
 
-
-
 })
 
 module.exports = router;

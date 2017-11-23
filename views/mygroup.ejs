@@ -1,28 +1,66 @@
 <body>
-    <div class="main-container-group">
-        <div class="main-side-group">
-            <h1>Your Group</h1>
+    <div class="container">
+        <nav class="container-navbar">
+            <ul class="links">
+                <li class="btn">
+                    <a href="/profile/<%=user._id%>">My Profile</a>
+                </li>
+                <li class="btn">
+                    <a href="/group/mygroup/<%=group._id%>">My Group</a>
+                </li>
+                <li class="btn">
+                    <a href="/logout">Log out</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="main-container-group">
+            <div class="main-side-group">
+                <div class="left-side-group">
+                    <h1>Your Group</h1>
 
-            <div class="members-list">
-                <h2>
-                    <%= group.groupname %>
-                </h2>
-                <h2>Members:</h2>
-                <ul id="">
-                    <% group.userIds.forEach(function(user){ %>
-                        <li>
-                            <a href="/profile/<%=user._id%>">
-                                
-                            <%= JSON.stringify(user) %>
-                            </a>
-                        </li>
+                    <div class="members-list">
+                        <h2>
+                            <%= group.groupname %>
+                        </h2>
+                        <h2>Members:</h2>
+                        <ul id="">
+                            <% group.userIds.forEach(function(user){ %>
+                                <li>
+                                    <a href="/profile/<%=user._id%>">
 
-                        <% }) %>
-                </ul>
+                                        <%= JSON.stringify(user) %>
+                                    </a>
+                                </li>
+                                <%})%>
+                        </ul>
+                        <div class="link-box">
+                            <label>Copy the link to invite the members</label>
+                            <input class="link" type="text" name="taskName" value="http://localhost:3000/group/join/<%=group._id%>">
+                        </div>
+                    </div>
+                </div>
+                <div class="right-side-group">
+                    <h1>ADD THEM TASKS</h1>
+                    <div class="tasks-box">
+                        <form action="/task/new" method="POST" id="form-group-members">
+                            <label for="task">Insert one task here</label>
+                            <input id="task" type="text" name="taskName" placeholder="Do the laundry">
+                            <input type="hidden" name="groupId" value="<%=group._id%>">
+                            <select class="users-list">
+                                <% group.userIds.forEach(function(user){ %>
+                                    <option value="user">
+                                        <%= user %>
+                                    </option>
+                                    <% }) %>
+                            </select>
+                            <button>DONE</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="footer-side">
-            <p>2017 © Daily Grind. Privacy & Terms</p>
+            <div class="footer-side">
+                <p>2017 © Daily Grind. Privacy & Terms</p>
+            </div>
         </div>
     </div>
 </body>
