@@ -7,6 +7,7 @@ const User = require("../models/user");
 const mongoose = require('mongoose');
 
 router.get("/create-group/", ensureLogin.ensureLoggedIn("/welcome"),(req, res) => {
+  // ejs creates group with a specific userId of the admin related
   const userId = req.session.passport.user;
   res.render("create-group", {userId});
 });
@@ -14,6 +15,7 @@ router.get("/create-group/", ensureLogin.ensureLoggedIn("/welcome"),(req, res) =
 router.post("/creategroup", (req, res, next) => {
   const groupname = req.body.groupname;
   const description = req.body.description;
+  // 'const adminId' gets info from the logged in user
   const adminId = req.body.adminId;
 
   if (groupname === "") {
@@ -35,6 +37,7 @@ router.post("/creategroup", (req, res, next) => {
       description,
       adminId: adminId,
       tasks: [],
+      // 'adminId' is also a user even if the group has no members
       userIds: [adminId]
     });
 
@@ -43,6 +46,8 @@ router.post("/creategroup", (req, res, next) => {
       res.render("create-group", { message: "Something went wrong" });
       return;
     } else {
+      // Once the group has been saved (created), looks for the admin in the users-collection
+      // and adds him the groupId
       User.findOneAndUpdate({_id: adminId}, {$set: {group: group._id}}, (err) => {
          if (err) {
            next(err);
@@ -55,6 +60,7 @@ router.post("/creategroup", (req, res, next) => {
  });
 });
 
+//signup for the member, comes from the link which has the id of the group he will join to in the params
 router.get('/join/:groupId',(req, res) => {
   Group.findOne({_id: req.params.groupId}, (err, group) => {
     if (err) {

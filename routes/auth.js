@@ -25,6 +25,7 @@ router.post("/signup", (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
   const role = req.body.role;
+  // gets the groupId if the user is a member (not admin)
   const groupId = req.body.groupId || undefined;
 
   if (username === "" || password === "" || email === "") {
@@ -52,6 +53,7 @@ router.post("/signup", (req, res, next) => {
       email,
       password: hashPass,
       role,
+      // group added to make sense with the post above
       group: groupId
     });
 
@@ -61,8 +63,9 @@ router.post("/signup", (req, res, next) => {
           message: "Something went wrong"
         });
       } else {
-        console.log(groupId)
+        // if there is a groupId, the user is a member (admin has no groupId in this step)
         if (groupId) {
+          // Adds the userId to the Array-of-users of the group he's joining to
           Group.findOneAndUpdate({_id: groupId}, {$push: {userIds: user._id}}, (err) => {
             if (err) next(err);
             return passport.authenticate('local')(req, res, function () {
