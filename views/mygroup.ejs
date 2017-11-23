@@ -11,7 +11,10 @@
                 <ul id="">
                     <% group.userIds.forEach(function(user){ %>
                         <li>
-                            <%= user %>
+                            <a href="/profile/<%=user._id%>">
+                                
+                            <%= JSON.stringify(user) %>
+                            </a>
                         </li>
 
                         <% }) %>

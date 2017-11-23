@@ -71,17 +71,31 @@ router.get('/join/:groupId',(req, res) => {
   });
 });
 
+// router.get("/mygroup/:groupId",(req,res)=>{
+//   console.log(req.params)
+//  Group.findOne({_id: req.params.groupId},(err,group)=>{
+//    if(err){
+//      next(err);
+//    } else {
+//      res.render("mygroup",{group});
+//    }
+//  }).populate
+// })
+
 router.get("/mygroup/:groupId",(req,res)=>{
-  console.log(req.params)
- Group.findOne({_id: req.params.groupId},(err,group)=>{
-   if(err){
-     next(err);
-   } else {
-     res.render("mygroup",{group});
-   }
- })
+Group.findOne({_id: req.params.groupId}).
+populate({
+    path:"userIds",
+    model:"User",
+    select:"username"
+  }).
+exec(function (err, group) {
+  if (err) {
+    next(err);
+  } else {
+    res.render("mygroup",{group});
+  }
+});
 })
-
-
 
 module.exports =  router;
