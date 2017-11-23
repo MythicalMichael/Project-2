@@ -11,6 +11,7 @@ body {
   flex-direction: column;
   align-content: space-between;
   justify-content: center;
+  color: black;
 }
 
 .main-side-group {
@@ -22,6 +23,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.members-list li{
+  color: grey;
+
 }
 
 

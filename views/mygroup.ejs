@@ -1,20 +1,25 @@
 <body>
-    <div class="main-container-profile">
-        <div class="main-side-profile">
+    <div class="main-container-group">
+        <div class="main-side-group">
             <h1>Your Group</h1>
-            <%= group.groupname %>
-            <h2>Members:</h2>
-            <ul id="">
-                 <% group.userIds.forEach(function(user){ %>
-                   <li>
-                        <%= user %>
-                   </li>
 
-                 <% }) %>
-            </ul>
+            <div class="members-list">
+                <h2>
+                    <%= group.groupname %>
+                </h2>
+                <h2>Members:</h2>
+                <ul id="">
+                    <% group.userIds.forEach(function(user){ %>
+                        <li>
+                            <%= user %>
+                        </li>
+
+                        <% }) %>
+                </ul>
+            </div>
         </div>
         <div class="footer-side">
-                <p>2017 © Daily Grind. Privacy & Terms</p>
-              </div>
+            <p>2017 © Daily Grind. Privacy & Terms</p>
+        </div>
     </div>
 </body>
