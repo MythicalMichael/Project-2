@@ -16,7 +16,7 @@
         </nav>
     
       
-       
+            
         
 
             <select class="users-list">
@@ -28,6 +28,10 @@
             </select>
             <button>DONE</button>
         </form>
+         <% if ( user.role === "admin") { %>
+            <button class="delete-button-dashboard dashboard-admin-btn">DELETE</button>
+            <button class="add-button-dashboard dashboard-admin-btn">ADD</button>
+        <% } %>
 
     </div>
 
@@ -35,5 +39,5 @@
     <input id="link" type="text" name="taskName" value="http://localhost:3000/group/join/<%=group._id%>">
 
 </div>
-<div id="container"></div>
+
 <!-- <script type="text/javascript" src="/javascripts/progressBar.js"></script> -->
