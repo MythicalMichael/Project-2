@@ -8,6 +8,7 @@
         <h2>Create a personal account first</h2>
         <form action="/signup" method="POST" id="form-container">
           <input type="hidden" name="role" value="member">
+          <input type="hidden" name="groupId" value="<%=group._id%>">
           <label for="username">Username</label>
           <input id="username" type="text" name="username" placeholder="Insert your name here">
           <br>

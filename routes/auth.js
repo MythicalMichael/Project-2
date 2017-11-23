@@ -61,11 +61,13 @@ router.post("/signup", (req, res, next) => {
           message: "Something went wrong"
         });
       } else {
+        console.log(groupId)
         if (groupId) {
-          Group.findOneAndUpdate({_id: groupId}, {userIds: {$push: user._id}}, (err) => {
+          console.log('kjhgfdftyuiuytresdbnkj----- WHATSUUUUUUPPPPPP-----hYTR434567898UYHGFgvbhjnmkjh')
+          Group.findOneAndUpdate({_id: groupId}, {$push: {userIds: user._id}}, (err) => {
             if (err) next(err);
             return passport.authenticate('local')(req, res, function () {
-              res.redirect('/group/create-group/');
+              res.redirect('/');
             });
           });
         } else {
