@@ -52,7 +52,7 @@ router.post("/signup", (req, res, next) => {
       email,
       password: hashPass,
       role,
-      groupId
+      group: groupId
     });
 
     newUser.save((err, user) => {
@@ -63,7 +63,6 @@ router.post("/signup", (req, res, next) => {
       } else {
         console.log(groupId)
         if (groupId) {
-          console.log('kjhgfdftyuiuytresdbnkj----- WHATSUUUUUUPPPPPP-----hYTR434567898UYHGFgvbhjnmkjh')
           Group.findOneAndUpdate({_id: groupId}, {$push: {userIds: user._id}}, (err) => {
             if (err) next(err);
             return passport.authenticate('local')(req, res, function () {
