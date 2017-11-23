@@ -9,6 +9,7 @@ router.get('/', (req, res, next) => {
   const userId = req.session.passport.user;
   Group.findOne({$or: [{adminId: userId}, {userIds: userId}]}, (err, group) => {
       if (err) return next(err);
+      console.log(group)
       res.render('dashboard', {group});
   });
 });

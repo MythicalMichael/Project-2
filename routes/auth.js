@@ -1,8 +1,8 @@
 const express = require("express");
-const authRoutes = express.Router();
+const router = express.Router();
 const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
-
+const Group = require("../models/group");
 
 const User = require("../models/user");
 
@@ -13,18 +13,19 @@ const bcryptSalt = 10;
 
 // --- SIGNUP ---
 
-authRoutes.get("/signup", (req, res, next) => {
+router.get("/signup", (req, res, next) => {
   const role = req.params.role;
   res.render("auth/signup", {
     role: role
   });
 });
 
-authRoutes.post("/signup", (req, res, next) => {
+router.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
-  const role = 'admin';
+  const role = req.body.role;
+  const groupId = req.body.groupId || undefined;
 
   if (username === "" || password === "" || email === "") {
     res.render("auth/signup", {
@@ -51,6 +52,7 @@ authRoutes.post("/signup", (req, res, next) => {
       email,
       password: hashPass,
       role,
+      groupId
     });
 
     newUser.save((err, user) => {
@@ -59,9 +61,18 @@ authRoutes.post("/signup", (req, res, next) => {
           message: "Something went wrong"
         });
       } else {
-        passport.authenticate('local')(req, res, function () {
-          res.redirect('/group/create-group/');
-        });
+        if (groupId) {
+          Group.findOneAndUpdate({_id: groupId}, {userIds: {$push: user._id}}, (err) => {
+            if (err) next(err);
+            return passport.authenticate('local')(req, res, function () {
+              res.redirect('/group/create-group/');
+            });
+          });
+        } else {
+          passport.authenticate('local')(req, res, function () {
+            res.redirect('/group/create-group/');
+          });
+        }
       }
     });
   });
@@ -70,11 +81,11 @@ authRoutes.post("/signup", (req, res, next) => {
 
 // --- LOGIN ---
 
-authRoutes.get("/welcome", (req, res, next) => {
+router.get("/welcome", (req, res, next) => {
   res.render("welcome");
 });
 
-authRoutes.post("/welcome", passport.authenticate("local", {
+router.post("/welcome", passport.authenticate("local", {
   successRedirect: "/",
   failureRedirect: "/welcome",
   failureFlash: true,
@@ -83,7 +94,7 @@ authRoutes.post("/welcome", passport.authenticate("local", {
 
 // --- AUTHENTICATION
 
-authRoutes.get("/private-page", ensureLogin.ensureLoggedIn("/welcome"), (req, res) => {
+router.get("/private-page", ensureLogin.ensureLoggedIn("/welcome"), (req, res) => {
   res.render("private", {
     user: req.user
   });
@@ -92,10 +103,10 @@ authRoutes.get("/private-page", ensureLogin.ensureLoggedIn("/welcome"), (req, re
 
 // --- LOG OUT
 
-authRoutes.get("/logout", (req, res) => {
+router.get("/logout", (req, res) => {
   req.session.destroy();
   req.logout();
   res.redirect("/welcome");
 });
 
-module.exports = authRoutes;
+module.exports = router;

@@ -15,7 +15,7 @@ const MongoStore = require("connect-mongo")(session);
 mongoose.connect("mongodb://localhost/project2-DB");
 
 const taskRoutes = require("./routes/tasks");
-const authRoutes = require("./routes/auth");
+const  router = require("./routes/auth");
 const index = require('./routes/index');
 const group = require('./routes/group');
 const User = require("./models/user");
@@ -87,7 +87,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', index);
-app.use('/', authRoutes);
+app.use('/',  router);
 app.use('/group', group);
 app.use('/task', taskRoutes);
 

@@ -1,13 +1,13 @@
 <div class="main-container">
   <div class="middle-section">
     <div class="left-side-signup">
-      <h3> You are getting closer to creating your group. Remember: you will be the admin!</h3>
+      <h3> You have been invited to be a member of <%=group.groupname%> </h3>
       <h1>Signup</h1>
 
       <div class="signup-box">
         <h2>Create a personal account first</h2>
         <form action="/signup" method="POST" id="form-container">
-          <input type="hidden" name="role" value="admin">
+          <input type="hidden" name="role" value="member">
           <label for="username">Username</label>
           <input id="username" type="text" name="username" placeholder="Insert your name here">
           <br>
