@@ -6,6 +6,10 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
+.member-list{
+  color:black;
+}
+
 .main-container-creategroup {
   display: flex;
   flex-direction: column;

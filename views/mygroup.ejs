@@ -2,18 +2,15 @@
     <div class="main-container-profile">
         <div class="main-side-profile">
             <h1>Your Group</h1>
-           
             <%= group.groupname %>
-        </div>
-        <div>
             <h2>Members:</h2>
-            <ul>
-            <% for(var i=0; i < group.userIds.length; i++) { %>
-                <li>
-                  group.userIds[i]
-                </li>
+            <ul id="">
+                 <% group.userIds.forEach(function(user){ %>
+                   <li>
+                        <%= user %>
+                   </li>
 
-            <% } %>
+                 <% }) %>
             </ul>
         </div>
         <div class="footer-side">
