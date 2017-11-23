@@ -1,28 +1,37 @@
+<nav class="container-navbar">
+    <ul class="links">
+        <li class="btn">
+            <a href="userId/profile">My Profile</a>
+        </li>
+        <li class="btn">
+            <a href="/mygroup">My Group</a>
+        </li>
+        <li class="btn">
+            <a href="/logout">Log out</a>
+        </li>
+    </ul>
+</nav>
+<div class="main-container-dashboard">
+    <h1>TASKS</h1>
+    <div class="tasks-box">
+        <form action="/task/new" method="POST" id="form-dashboard">
+            <label for="task">Task 1</label>
+            <input id="task" type="text" name="taskName" placeholder="Insert one task here">
 
-    <nav class="container-navbar">
-         <ul class="links">
-                <li class="btn"><a href="userId/profile">My Profile</a></li>
-                <li class="btn"><a href="/mygroup">My Group</a></li>
-                <li class="btn"><a href="/logout">Log out</a></li>
-         </ul>
-        </nav>
-    <div class="main-container-dashboard">
-      <h1>TASKS</h1> 
-<div class="tasks-box">
-      <form action="/task/new" method="POST" id="form-dashboard">
-        <label for="task">Task 1</label>
-        <input id="task" type="text" name="taskName" placeholder="Insert one task here">
-       
-        <select> </select>
-
-        <button>DONE</button>
-
-      </form>
+            <select class="users-list">
+                <% group.userIds.forEach(function(user){ %>
+                    <option value="user">
+                        <%= user %>
+                    </option>
+                    <% }) %>
+            </select>
+            <button>DONE</button>
+        </form>
     </div>
 
     <label>Copy the link to invite the members</label>
     <input id="link" type="text" name="taskName" value="http://localhost:3000/group/join/<%=group._id%>">
 
-    </div>
-    <div id="container"></div>
-    <!-- <script type="text/javascript" src="/javascripts/progressBar.js"></script> -->
+</div>
+<div id="container"></div>
+<!-- <script type="text/javascript" src="/javascripts/progressBar.js"></script> -->

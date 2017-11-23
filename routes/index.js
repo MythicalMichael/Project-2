@@ -7,10 +7,11 @@ const Task = require("../models/task");
 
 router.get('/', (req, res, next) => {
   //contains an object which is the user id. passport saves it
-  const userId = req.session.passport.user; 
+  const userId = req.user; 
   //looks for the group that contains the user as admin OR member
   Group.findOne({$or: [{adminId: userId}, {userIds: userId}]}, (err, group) => { 
-      if (err) return next(err);
+    console.log(group) 
+    if (err) return next(err);
       res.render('dashboard', {group});
   });
 });

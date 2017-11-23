@@ -15,7 +15,7 @@ router.get("/create-group/", ensureLogin.ensureLoggedIn("/welcome"),(req, res) =
 router.post("/creategroup", (req, res, next) => {
   const groupname = req.body.groupname;
   const description = req.body.description;
-  // 'const adminId' gets info from the logged in user
+  // 'const adminId' gets info from the logged-in user
   const adminId = req.body.adminId;
 
   if (groupname === "") {
@@ -70,6 +70,7 @@ router.get('/join/:groupId',(req, res) => {
     }
   });
 });
+
 
 
 module.exports =  router;
