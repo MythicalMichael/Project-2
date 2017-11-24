@@ -33,10 +33,14 @@
                             </li>
                             <%})%>
                     </ul>
+                    <% if (user.role === "admin") { %>
                     <div class="link-box">
+                            
                         <label>Copy the link to invite the members</label>
                         <input class="link" type="text" name="taskName" value="http://localhost:3000/group/join/<%=group._id%>">
+                        
                     </div>
+                    <% } %>
                 </div>
             </div>
             <div class="right-side-group">
