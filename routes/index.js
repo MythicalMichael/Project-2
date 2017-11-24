@@ -12,17 +12,24 @@ const ensureLogin = require("connect-ensure-login");
 router.get('/', ensureLogin.ensureLoggedIn("/welcome"),(req, res, next) => {
 
   const userId = req.user._id;
-  const user = req.user;
   Group.findOne({$or:[{adminId: userId}, {userIds: userId }]})
         .populate({
           path:"tasks",
           model:"Task"
         })
         .exec((err, group) => {
-          res.render('dashboard', {user, group});
-        })
+          User.findOne({_id: userId})
+          .populate({
+            path:"tasks",
+            model:"Task"
+          }).exec((err, user) => {
+            if (err) {
+              next(err);
+            } else {
+              res.render('dashboard', {user, group});
+            }
+        });
+      });
 });
   
-
 module.exports = router;
-

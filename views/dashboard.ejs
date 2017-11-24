@@ -11,7 +11,7 @@
     <div class="left-side-dashboard">
     <h1>Your TASKS pending:</h1>
     <ul>
-        <% group.tasks.forEach(function(task){ %>
+        <% user.tasks.forEach(function(task){ %>
             <li class="squaredThree">
                 <%= task.taskName %>
                 <input class="checkbox" type="checkbox" value="<%=task._id%>" <%=task.isDone ? 'checked' : null%>>

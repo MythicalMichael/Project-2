@@ -46,7 +46,9 @@ router.get("/dashboard/:userId", (req, res, next) => {
       if (err) {
         next(err);
       } else {
+
         res.render("dashboard-member",{user,loggedInUser})
+
         }
     });
 });
