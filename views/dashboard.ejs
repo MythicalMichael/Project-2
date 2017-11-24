@@ -7,9 +7,10 @@
         <li class="btn"><a href="/logout">Log out</a></li>
     </ul>
 </nav>
-<div class="main-container-dashboard">
+<div class="main-container-dashboard-one">
     <div class="left-side-dashboard">
     <h1>Your TASKS pending:</h1>
+    <div class="tasks-box">
     <ul>
         <% user.tasks.forEach(function(task){ %>
             <li class="squaredThree">
@@ -19,11 +20,10 @@
         <% }) %>
     </ul>
     </div>
+    </div>
     <div class="right-side-dashboard">
          <% if (user.role === "admin") { %>
-            
-            <a href="/reset/<%= user._id %>" class="delete-button-dashboard dashboard-admin-btn">RESET</button>
-            
+         <a href="/reset/<%= user._id %>" class="delete-button-dashboard dashboard-admin-btn">RESET</a>
         <% } %>
     </div>
 </div>

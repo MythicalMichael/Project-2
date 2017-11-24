@@ -6,32 +6,35 @@ body {
 
 .container-navbar {
     width: 100%;
-    /* background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%); */
-    background-image: linear-gradient(-60deg, #16a085 0%, #f4d03f 100%);
+    background-color:rgb(178, 211, 200);;
     top:0;
     position: fixed;
     z-index:1;
     font-weight: lighter
 
 } 
-a{
+.container-navbar a{
     color:white;
     text-decoration:none;
     
 }
 
-ul{
+.container-navbar ul{
     list-style: none;
     padding: 5px 10px;
     font-weight: lighter;
     font-family: Helvetica, sans-serif;
 }
 
-li{
+.container-navbar li{
    padding: 10px;
    border: 20px;
    font-family: sans-serif;
    color: white;
+   background-color: transparent;
+   border-color: rgba(16, 56, 43, 0.9);
+   border: 0.5px solid;
+   border-radius: 3rem;
   
 }
 

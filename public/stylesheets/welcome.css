@@ -192,13 +192,6 @@ h1{
             }
           }
 
-.footer-side{
-  position: relative;
-  height: 1500px;
-  width: 100%;
-  background-color: rgba(16, 56, 43, 0.616);
-  margin-top: 20px;
-}
 
 /*   BROWSER VIEW   */
 
@@ -272,6 +265,7 @@ h1{
     border: 5px solid;
     cursor: pointer;
     overflow: hidden;
+    border-radius: 3rem;
   }
 
   .right-side-signup{
@@ -393,25 +387,6 @@ h1{
     to {
       stroke-dashoffset: 0;
     }
-  }
-
-  .footer-side{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-end;
-    align-content: space-around;
-    position: relative;
-    height: 100px;
-    width: 100%;
-    background-color: rgba(16, 56, 43, 0.616);
-    margin-top: 5px;
-  }
-  
-  .footer-side p{
-    font-size: 15px;
-    color: white;
-    margin: 10px;
   }
 
 }

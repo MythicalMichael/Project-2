@@ -7,6 +7,7 @@
     </ul>
 </nav>
 <div class="main-container-dashboard">
+        <div class="left-side-dashboard">
     <h1> <%=user.username%>'s TASKS pending:</h1>
     <ul>
         <% user.tasks.forEach(function(task){ %>
@@ -16,6 +17,7 @@
             </li>
         <% }) %>
     </ul>
+    </div>
     <div class="right-side-dashboard">
             <% if (loggedInUser.role === "admin") { %>
                
