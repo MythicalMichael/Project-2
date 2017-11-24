@@ -15,14 +15,8 @@ const passport = require("passport");
 //                 res.render("profile",{user})
 
 //             }
-
 //         }
-
 //     )
-
-
-
-
 // })
 
 
@@ -31,35 +25,31 @@ router.get("/profile/me", (req, res, next) => {
   //Group needs to be populated
   const userId = req.user._id
     User.findOne({_id: userId}, (err, user) => {
-
-            if (err) {
-                next(err);
-            } else {
-                res.render("profile",{user})
-
-            }
-
-        }
-
-    )
-
-
-})
-
-router.get("/profile/:userId", (req, res, next) => {
-    //Group needs to be populated
-    User.findOne({_id: req.params.userId})
-    .populate({
-        path: 'group',
-        model: 'Group'
-    }).exec((err, user) => {
         if (err) {
             next(err);
         } else {
-            res.render("dashboard-member",{user})
-
+            res.render("profile",{user})
         }
     });
 });
+
+router.get("/dashboard/:userId", (req, res, next) => {
+  User.findOne({_id: req.params.userId})
+    .populate({
+      path: 'group',
+      model: 'Group'
+    }).populate({
+      path:'tasks',
+      model:'Task'
+    }).exec((err, user) => {
+      if (err) {
+        next(err);
+      } else {
+        res.render("dashboard-member",{user})
+        }
+    });
+});
+
+
 
 module.exports = router;

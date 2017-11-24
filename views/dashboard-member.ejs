@@ -7,11 +7,11 @@
     </ul>
 </nav>
 <div class="main-container-dashboard">
-    <h1> <%=user.username%> TASKS pending:</h1>
+    <h1> <%=user.username%>'s TASKS pending:</h1>
     <ul>
-        <% user.group.tasks.forEach(function(task){ %>
+        <% user.tasks.forEach(function(task){ %>
             <li class="squaredThree">
-                <%= task.taskName %>
+                <%= user.taskName%>
                 <input class="checkbox-member" disabled type="checkbox" value="<%=task._id%>" <%=task.isDone ? 'checked' : null%>>
             </li>
         <% }) %>

@@ -3,7 +3,7 @@
     <nav class="container-navbar">
         <ul class="links">
             <li class="btn">
-                <a href="/profile/<%=user._id%>">My Profile</a>
+                <a href="/profile/me">My Profile</a>
             </li>
             <li class="btn">
                 <a href="/">Dashboard</a>
@@ -27,21 +27,19 @@
                     <ul id="">
                         <% group.userIds.forEach(function(user){ %>
                             <li>
-                                <a href="/profile/<%=user._id%>">
+                                <a href="/dashboard/<%=user._id%>">
 
                                     <%= user.username %>
                                 </a>
                             </li>
                             <%})%>
                     </ul>
-                    
+                    <% if (user.role === "admin") { %>
                     <div class="link-box">
-                       <% if (user.role === "admin") { %>
                         <label>Copy the link to invite the members</label>
                         <input class="link" type="text" name="taskName" value="http://localhost:3000/group/join/<%=group._id%>">
-                       <% } %>
                     </div>
-                    
+                    <% } %>
                 </div>
             </div>
 
