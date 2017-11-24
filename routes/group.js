@@ -82,7 +82,7 @@ router.get('/join/:groupId',(req, res) => {
 //  }).populate
 // })
 
-router.get("/mygroup/:groupId",(req,res)=>{
+router.get("/mygroup/:groupId",(req,res,next)=>{
   const user = req.user;
 Group.findOne({_id: req.params.groupId}).
 populate({

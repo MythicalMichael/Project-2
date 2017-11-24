@@ -68,7 +68,7 @@ body {
   
   .left-side-group{
     position: relative;
-    height: 800px;
+    height: 700px;
     width: 860px;
     margin-top: 20px;
     display: flex;
@@ -94,7 +94,7 @@ body {
 
   .right-side-group{
     position: relative;
-    height: 800px;
+    height: 700px;
     width: 700px;
     margin-top: 20px;
     display: flex;
