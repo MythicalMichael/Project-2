@@ -12,6 +12,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const flash = require("connect-flash");
 const MongoStore = require("connect-mongo")(session);
 
+
 mongoose.connect("mongodb://localhost/project2-DB");
 
 const taskRoutes = require("./routes/tasks");
@@ -22,6 +23,7 @@ const User = require("./models/user");
 const Group = require("./models/group");
 const expressLayouts = require('express-ejs-layouts');
 const member = require("./routes/member")
+const reset = require("./routes/reset")
 const app = express();
 
 // view engine setup
@@ -91,7 +93,7 @@ app.use('/',  router);
 app.use('/group', group);
 app.use('/task', taskRoutes);
 app.use("/", member);
-
+app.use("/", reset);
 app.use(function (req, res, next) {
   res.status(404);
   res.render('not-found');

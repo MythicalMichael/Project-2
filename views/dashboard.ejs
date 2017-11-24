@@ -21,8 +21,9 @@
     </div>
     <div class="right-side-dashboard">
          <% if (user.role === "admin") { %>
-            <button class="delete-button-dashboard dashboard-admin-btn">DELETE</button>
-            <button class="add-button-dashboard dashboard-admin-btn">ADD</button>
+            
+            <a href="/reset/<%= user._id %>" class="delete-button-dashboard dashboard-admin-btn">RESET</button>
+            
         <% } %>
     </div>
 </div>
