@@ -1,5 +1,6 @@
 
 <nav class="container-navbar">
+    
     <ul class="links">
         <li class="btn"><a href="/profile/me">My Profile</a></li>
         <li class="btn"><a href="/group/mygroup/<%=group._id%>">My Group</a></li>
@@ -7,6 +8,7 @@
     </ul>
 </nav>
 <div class="main-container-dashboard">
+    <div class="left-side-dashboard">
     <h1>Your TASKS pending:</h1>
     <ul>
         <% group.tasks.forEach(function(task){ %>
@@ -16,10 +18,12 @@
             </li>
         <% }) %>
     </ul>
+    </div>
+    <div class="right-side-dashboard">
          <% if (user.role === "admin") { %>
             <button class="delete-button-dashboard dashboard-admin-btn">DELETE</button>
             <button class="add-button-dashboard dashboard-admin-btn">ADD</button>
         <% } %>
-
+    </div>
 </div>
 <!-- <script type="text/javascript" src="/javascripts/progressBar.js"></script> -->

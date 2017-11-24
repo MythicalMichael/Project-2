@@ -25,10 +25,10 @@ body {
   .main-container-dashboard{
     position: relative;
     height: 500px;
-    width: 500px;
+    width: 100%;
     margin-top: 200px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
   }
@@ -64,6 +64,16 @@ body {
     font-family: Helvetica, Arial, sans-serif;
   }
 
+.left-side-dashboard{
+  margin:20px;
+}
+
+.right-side-dashboard{
+  margin:20px;
+  display: flex;
+  flex-direction: column;
+}
+
   .tasks-box{
     position: relative;
     height: 300px;
@@ -80,16 +90,40 @@ body {
 
 
 .dashboard-admin-btn {
-
-  
+  position: relative;
+  width: 200px;
+  height: 4rem;
+  margin: 10px;;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(16, 56, 43, 0.616);
+  font-size: 1.5rem;
+  border-radius: 3rem;
+  cursor: pointer;
+  overflow: hidden;
 }
 
 .delete-button-dashboard {
-
-
+  position: relative;
+  width: 200px;
+  height: 4rem;
+  margin: 10px;;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(16, 56, 43, 0.616);
+  font-size: 1.5rem;
+  border-radius: 3rem;
+  cursor: pointer;
+  overflow: hidden;
 }
 
 .add-button-dashboard {
-
-
+  position: relative;
+  width: 200px;
+  height: 4rem;
+  margin: 10px;;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(16, 56, 43, 0.616);
+  font-size: 1.5rem;
+  border-radius: 3rem;
+  cursor: pointer;
+  overflow: hidden;
 }
