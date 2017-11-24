@@ -6,9 +6,11 @@
         <li class="btn"><a href="/logout">Log out</a></li>
     </ul>
 </nav>
-<div class="main-container-dashboard">
+<div class="main-container-dashboard-member">
+        <div class="white-box"></div>
         <div class="left-side-dashboard">
     <h1> <%=user.username%>'s TASKS pending:</h1>
+    <div class="tasks-box">
     <ul>
         <% user.tasks.forEach(function(task){ %>
             <li class="squaredThree">
@@ -17,11 +19,12 @@
             </li>
         <% }) %>
     </ul>
+</div>
     </div>
     <div class="right-side-dashboard">
             <% if (loggedInUser.role === "admin") { %>
                
-               <a href="/resetmember/<%= user._id %>" class="delete-button-dashboard dashboard-admin-btn">RESET</button>
+               <button><a href="/resetmember/<%= user._id %>" class="delete-button-dashboard dashboard-admin-btn">RESET</button>
                
            <% } %>
        </div>

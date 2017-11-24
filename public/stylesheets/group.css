@@ -69,13 +69,24 @@ body {
   .left-side-group{
     position: relative;
     height: 800px;
-    width: 1000px;
+    width: 860px;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     }
+
+  .left-side-group h1{
+    text-align: center;
+    font-size: 40px;
+    margin: 30px;
+    font-family:Helvetica, Arial, sans-serif;
+    }
+
+  .left-side-group .members-list{
+  position: relative;
+  }
 
   .members-list li{
     color: grey;
@@ -96,6 +107,19 @@ body {
   font-family: 40px;
   }
 
+  .tasks-box {
+    position: relative;
+    height: 400px;
+    width: 570px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: rgb(178, 211, 200);
+    border-radius: 30px;
+}
+
   .right-side-group button {
     position: relative;
     width: 200px;
@@ -109,12 +133,7 @@ body {
     overflow: hidden;
   }
 
-  .right-side-group form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-  }
+
 
   .link-box{
     height: 100px;

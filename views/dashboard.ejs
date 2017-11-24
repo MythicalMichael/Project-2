@@ -23,7 +23,7 @@
     </div>
     <div class="right-side-dashboard">
          <% if (user.role === "admin") { %>
-         <a href="/reset/<%= user._id %>" class="delete-button-dashboard dashboard-admin-btn">RESET</a>
+         <button><a href="/reset/<%= user._id %>" class="delete-button-dashboard">RESET</a></button>
         <% } %>
     </div>
 </div>
