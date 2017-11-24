@@ -22,8 +22,8 @@ const group = require('./routes/group');
 const User = require("./models/user");
 const Group = require("./models/group");
 const expressLayouts = require('express-ejs-layouts');
-const member = require("./routes/member")
-const reset = require("./routes/reset")
+const member = require("./routes/member");
+
 const app = express();
 
 // view engine setup
@@ -93,7 +93,6 @@ app.use('/',  router);
 app.use('/group', group);
 app.use('/task', taskRoutes);
 app.use("/", member);
-app.use("/", reset);
 app.use(function (req, res, next) {
   res.status(404);
   res.render('not-found');
