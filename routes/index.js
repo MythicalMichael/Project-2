@@ -26,7 +26,19 @@ router.get('/', ensureLogin.ensureLoggedIn("/welcome"),(req, res, next) => {
             if (err) {
               next(err);
             } else {
-              res.render('dashboard', {user, group});
+
+              let counter = 0;
+              
+              for(let ix = 0;ix<user.tasks.length;ix++){
+                  
+                if(user.tasks[ix]){
+                 counter++  
+                }
+              }
+              
+              var barValue = user.tasks.length/counter*100 
+
+              res.render('dashboard', {user, group, barValue});
             }
         });
       });

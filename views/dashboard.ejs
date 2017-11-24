@@ -23,14 +23,10 @@
     </div>
     <div class="right-side-dashboard">
          <% if (user.role === "admin") { %>
-<<<<<<< HEAD
-            
-            <a href="/reset/<%= user._id %>" class="delete-button-dashboard dashboard-admin-btn">RESET</a>
-            
-=======
          <a href="/reset/<%= user._id %>" class="delete-button-dashboard dashboard-admin-btn">RESET</a>
->>>>>>> e55401ebb08887e6e7f224c7d7cd10ba68f8a772
         <% } %>
     </div>
+    
+    <progress value="<%= barValue %>" max="100" id="progressbar" >  </progress>
 </div>
 <!-- <script type="text/javascript" src="/javascripts/progressBar.js"></script> -->
