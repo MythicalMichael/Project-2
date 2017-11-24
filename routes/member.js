@@ -15,14 +15,8 @@ const passport = require("passport");
 //                 res.render("profile",{user})
 
 //             }
-
 //         }
-
 //     )
-
-
-
-
 // })
 
 
@@ -31,37 +25,32 @@ router.get("/profile/me", (req, res, next) => {
   //Group needs to be populated
   const userId = req.user._id
     User.findOne({_id: userId}, (err, user) => {
-
-            if (err) {
-                next(err);
-            } else {
-                res.render("profile",{user})
-
-            }
-
-        }
-
-    )
-
-
-})
-
-router.get("/profile/:userId", (req, res, next) => {
-    //Group needs to be populated
-    User.findOne({_id: req.params.userId})
-    .populate({
-        path: 'group',
-        model: 'Group'
-    }).exec((err, user) => {
         if (err) {
             next(err);
         } else {
-            res.render("dashboard-member",{user})
-
+            res.render("profile",{user})
         }
     });
 });
 
+router.get("/dashboard/:userId", (req, res, next) => {
+  User.findOne({_id: req.params.userId})
+    .populate({
+      path: 'group',
+      model: 'Group'
+    }).populate({
+      path:'tasks',
+      model:'Task'
+    }).exec((err, user) => {
+      if (err) {
+        next(err);
+      } else {
+        res.render("dashboard-member",{user})
+        }
+    });
+});
+
+<<<<<<< HEAD
 router.get("/reset/:userId", (req,res,next)=>{
     console.log("im here")
 
@@ -81,4 +70,8 @@ router.get("/reset/:userId", (req,res,next)=>{
   })
 })
 
+=======
+
+
+>>>>>>> d2f1a52af5b80efadd87cb29c7c805a17929b7e5
 module.exports = router;

@@ -3,6 +3,7 @@ const Group = require("../models/group");
 const express = require("express");
 const router = express.Router();
 const Task = require("../models/task");
+const User = require("../models/user");
 
 router.post('/new', (req, res, next) => {
   const userId = req.body.userId;
@@ -11,15 +12,22 @@ router.post('/new', (req, res, next) => {
   
   const newTask = Task({ userId, groupId, taskName, isDone: false })
   
-  newTask.save((err, task) => {
+newTask.save((err, task) => {
+  if (err) next(err);
+  else {
+    Group.findOneAndUpdate({_id: groupId}, {$push: {tasks: task._id}}, (err) => {
       if (err) next(err);
       else {
-        Group.findOneAndUpdate({_id: groupId}, {$push: {tasks: task._id}}, (err) => {
+        User.findOneAndUpdate({_id: userId}, {$push: {tasks: task._id}}, (err)=> {
           if (err) next(err);
-          res.redirect("/group/mygroup/" + groupId);
+          else {
+            res.redirect("/group/mygroup/" + groupId);
+          }
         });
       }
-  });
+      });
+  }
+});
 });
 
 router.post('/:id/update', (req, res, next) => {
@@ -28,7 +36,7 @@ router.post('/:id/update', (req, res, next) => {
 
   Task.findOneAndUpdate({_id: taskId}, {$set: {isDone: isDone}}, (err, task) => {
     if (err) next(err);
-    console.log('Task updated!')
+    console.log('Task updated!');
   });
 });
 
