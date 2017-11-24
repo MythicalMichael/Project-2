@@ -22,6 +22,7 @@ router.get('/', ensureLogin.ensureLoggedIn("/welcome"),(req, res, next) => {
           res.render('dashboard', {user, group});
         })
 });
+  
 
 module.exports = router;
 

@@ -1,14 +1,13 @@
 
 <nav class="container-navbar">
     <ul class="links">
-        <li class="btn"><a href="/profile/<%=user._id%>">My Profile</a></li>
+        <li class="btn"><a href="/profile/me">My Profile</a></li>
         <li class="btn"><a href="/group/mygroup/<%=group._id%>">My Group</a></li>
         <li class="btn"><a href="/logout">Log out</a></li>
     </ul>
 </nav>
 <div class="main-container-dashboard">
-    <h1>TASKS pending:</h1>
-    <form action="">
+    <h1>Your TASKS pending:</h1>
     <ul>
         <% group.tasks.forEach(function(task){ %>
             <li class="squaredThree">
@@ -17,7 +16,6 @@
             </li>
         <% }) %>
     </ul>
-    <button>Update Tasks</button>
          <% if (user.role === "admin") { %>
             <button class="delete-button-dashboard dashboard-admin-btn">DELETE</button>
             <button class="add-button-dashboard dashboard-admin-btn">ADD</button>

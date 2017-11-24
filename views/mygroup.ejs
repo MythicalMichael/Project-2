@@ -6,7 +6,7 @@
                 <a href="/profile/<%=user._id%>">My Profile</a>
             </li>
             <li class="btn">
-                <a href="/group/mygroup/<%=group._id%>">My Group</a>
+                <a href="/">Dashboard</a>
             </li>
             <li class="btn">
                 <a href="/logout">Log out</a>
@@ -28,7 +28,7 @@
                             <li>
                                 <a href="/profile/<%=user._id%>">
 
-                                    <%= JSON.stringify(user) %>
+                                    <%= user.username %>
                                 </a>
                             </li>
                             <%})%>
@@ -49,7 +49,7 @@
                         <select class="users-list">
                             <% group.userIds.forEach(function(user){ %>
                                 <option value="user">
-                                    <%= user %>
+                                    <%= user.username %>
                                 </option>
                                 <% }) %>
                         </select>

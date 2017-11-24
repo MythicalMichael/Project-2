@@ -1,0 +1,21 @@
+
+<nav class="container-navbar">
+    <ul class="links">
+        <li class="btn"><a href="/profile/me">My Profile</a></li>
+        <li class="btn"><a href="/group/mygroup/<%=user.group._id%>">My Group</a></li>
+        <li class="btn"><a href="/logout">Log out</a></li>
+    </ul>
+</nav>
+<div class="main-container-dashboard">
+    <h1> <%=user.username%> TASKS pending:</h1>
+    <ul>
+        <% user.group.tasks.forEach(function(task){ %>
+            <li class="squaredThree">
+                <%= task.taskName %>
+                <input class="checkbox-member" disabled type="checkbox" value="<%=task._id%>" <%=task.isDone ? 'checked' : null%>>
+            </li>
+        <% }) %>
+    </ul>
+
+</div>
+<!-- <script type="text/javascript" src="/javascripts/progressBar.js"></script> -->
