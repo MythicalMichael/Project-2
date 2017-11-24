@@ -51,5 +51,27 @@ router.get("/dashboard/:userId", (req, res, next) => {
 });
 
 
+router.get("/reset/:userId", (req,res,next)=>{
+    console.log("im here")
+
+
+    User.findById({_id: req.params.userId}, (err,user) => {
+        user.tasks=[];
+        user.save((err) => {
+            if(err) {
+               next(err);
+            
+            } else {
+                console.log("another error")
+                res.redirect("/");
+                
+        }
+     });
+  })
+})
+
+
+
+
 
 module.exports = router;
