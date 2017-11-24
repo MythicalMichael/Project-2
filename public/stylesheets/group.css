@@ -133,22 +133,4 @@ body {
   background-color: rgb(178, 211, 200);
   }
 
-  .footer-side {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-end;
-    align-content: space-around;
-    position: relative;
-    height: 100px;
-    width: 100%;
-    background-color: rgba(16, 56, 43, 0.616);
-    margin-top: 5px;
-    bottom: 0;
-  }
-  .footer-side p {
-    font-size: 15px;
-    color: white;
-    margin: 10px;
-  }
 }
