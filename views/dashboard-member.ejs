@@ -16,6 +16,12 @@
             </li>
         <% }) %>
     </ul>
-
+    <div class="right-side-dashboard">
+            <% if (loggedInUser.role === "admin") { %>
+               
+               <a href="/resetmember/<%= user._id %>" class="delete-button-dashboard dashboard-admin-btn">RESET</button>
+               
+           <% } %>
+       </div>
 </div>
 <!-- <script type="text/javascript" src="/javascripts/progressBar.js"></script> -->

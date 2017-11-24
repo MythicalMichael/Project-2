@@ -34,6 +34,7 @@ router.get("/profile/me", (req, res, next) => {
 });
 
 router.get("/dashboard/:userId", (req, res, next) => {
+  const loggedInUser = req.user
   User.findOne({_id: req.params.userId})
     .populate({
       path: 'group',
@@ -45,7 +46,7 @@ router.get("/dashboard/:userId", (req, res, next) => {
       if (err) {
         next(err);
       } else {
-        res.render("dashboard-member",{user})
+        res.render("dashboard-member",{user,loggedInUser})
         }
     });
 });
@@ -70,7 +71,25 @@ router.get("/reset/:userId", (req,res,next)=>{
   })
 })
 
+router.get("/resetmember/:userId", (req,res,next)=>{
+  console.log("im here")
 
+
+  User.findById({_id: req.params.userId}, (err,user) => {
+      user.tasks=[];
+      user.save((err) => {
+          if(err) {
+             next(err);
+          
+          } else {
+              console.log("another error")
+
+              res.redirect("/");
+              //"/dashboard/:userId"
+      }
+   });
+})
+})
 
 
 
