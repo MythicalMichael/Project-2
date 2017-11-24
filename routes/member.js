@@ -50,7 +50,7 @@ router.get("/dashboard/:userId", (req, res, next) => {
     });
 });
 
-<<<<<<< HEAD
+
 router.get("/reset/:userId", (req,res,next)=>{
     console.log("im here")
 
@@ -70,8 +70,8 @@ router.get("/reset/:userId", (req,res,next)=>{
   })
 })
 
-=======
 
 
->>>>>>> d2f1a52af5b80efadd87cb29c7c805a17929b7e5
+
+
 module.exports = router;
