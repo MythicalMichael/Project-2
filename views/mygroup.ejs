@@ -20,11 +20,8 @@
                 <h1>Your Group</h1>
 
                 <div class="members-list">
-                    <h2>
-                        <%= group.groupname %>
-                    </h2>
-                    <h2>Members:</h2>
-                    <ul id="">
+                    <h2><%= group.groupname %> Members:</h2>
+                    <ul id="members-list">
                         <% group.userIds.forEach(function(user){ %>
                             <li>
                                 <a href="/dashboard/<%=user._id%>">
@@ -51,9 +48,9 @@
                         <label for="task">Insert one task here</label>
                         <input id="task" type="text" name="taskName" placeholder="Do the laundry">
                         <input type="hidden" name="groupId" value="<%=group._id%>">
-                        <select class="users-list">
+                        <select class="users-list" name="userPop">
                             <% group.userIds.forEach(function(user){ %>
-                                <option value="user">
+                                <option value="<%= user._id %>">
                                     <%= user.username %>
                                 </option>
                                 <% }) %>

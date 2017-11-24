@@ -9,6 +9,8 @@ router.post('/new', (req, res, next) => {
   const userId = req.body.userId;
   const groupId = req.body.groupId;
   const taskName = req.body.taskName;
+  const userPop = req.body.userPop;
+  console.log(userPop);
   
   const newTask = Task({ userId, groupId, taskName, isDone: false })
   
@@ -18,7 +20,7 @@ newTask.save((err, task) => {
     Group.findOneAndUpdate({_id: groupId}, {$push: {tasks: task._id}}, (err) => {
       if (err) next(err);
       else {
-        User.findOneAndUpdate({_id: userId}, {$push: {tasks: task._id}}, (err)=> {
+        User.findOneAndUpdate({_id: userPop}, {$push: {tasks: task._id}}, (err)=> {
           if (err) next(err);
           else {
             res.redirect("/group/mygroup/" + groupId);
