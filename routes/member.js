@@ -65,8 +65,9 @@ router.get("/reset/:userId", (req,res,next)=>{
                next(err);
             
             } else {
+              const groupId = req.user.group;
                 console.log("another error")
-                res.redirect("/");
+                res.redirect(`/group/mygroup/${groupId}`);
                 
         }
      });
@@ -85,8 +86,8 @@ router.get("/resetmember/:userId", (req,res,next)=>{
           
           } else {
               console.log("another error")
-
-              res.redirect("/");
+             const groupId = req.user.group;
+              res.redirect(`/group/mygroup/${groupId}`);
               //"/dashboard/:userId"
       }
    });
