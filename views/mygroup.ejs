@@ -39,8 +39,10 @@
                     </div>
                 </div>
             </div>
+
             <div class="right-side-group">
-                <h1>ADD THEM TASKS</h1>
+                <% if (user.role === "admin") { %>
+                <h1>Add them Tasks</h1>
                 <div class="tasks-box">
                     <form action="/task/new" method="POST" id="form-group-members">
                         <label for="task">Insert one task here</label>
@@ -56,6 +58,10 @@
                         <button>DONE</button>
                     </form>
                 </div>
+                <% } %>
+                <% if (user.role === "member") { %>
+                    
+                <% } %>  
             </div>
         </div>
         <div class="footer-side">
